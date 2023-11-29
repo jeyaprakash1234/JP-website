@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <title> mj</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+       
+
+        </head>
+        
+       
+        <section class="header">
+            <nav>
+            
+                <div class="nav-links" id="navlinks">
+                    <i class="fa fa-times" onclick="hidemenu()"></i>
+
+
+                    <ul>
+                    
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#footer">ABOUT</a></li>
+                        <li><a href="#">PORTFOLIO</a></li>
+                        <li><a href="#">SERVICES</a></li>
+                        <li><a href="#">CONTACT</a></li>
+
+
+
+
+
+                    </ul>
+                    
+                </div>
+                <i class="fa fa-bars" onclick="showmenu()"></i>
+
+            
+            </nav>
+            <div class="text-box">
+
+                <h1>Hi,I'm Jeyaprakash</h1>
+                <p>I'M a full-stack developer<br>From India</p>
+                <a href="">visit as more</a>
+
+            </div>
+            
+        </section>
+
+        <!---------------course------------------->
+
+
+<section class="course">
+    <h1>Course we offer</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+     
+    <div class="row">
+        <div class="course-col">
+            <h3> Skills</h3>
+            <p>Htmls,css
+              <br> javascript
+               <br>React
+                <br>Python </p>
+        </div>
+        <div class="course-col">
+            <h3>Degree</h3>
+            <p> Bachelor of Commerce,
+                <br> GTN Arts College In Dindigul Tamilnadu  </p>
+        </div>
+        <div class="course-col">
+            <h3> Data analysis</h3>
+            <p> I finish data analysis in coursera
+                 </p>
+        </div>
+
+
+    </div>
+
+
+
+</section>
+<!-----contact------>
+<div class="contact">
+    <div class="row">
+        <div class="contact-left">
+       
+        <h1 class="sub-title">Contact Me</h1>
+        <p> <i class="fa fa-paper-plane" ></i> Jayaprakash04607@gmail.com</p>
+        <p> <i class="fa fa-phone"></i> (+91)8940235358</p>
+       
+        
+        </div>
+
+        <div class="contact-right">
+            <form name="submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                <button type="submit" class="btn">Submit</button>
+
+
+                        
+            </form>
+            <span id="msg"></span>
+        </div>
+
+    
+    </div>
+
+</div>
+
+
+
+
+
+<!-------footer------------->
+<section class="footer">
+
+    <h4>About Us</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        pellentesque aliquet tupis nulla,<br> eleifend faucibus est
+        sollicitudin ut. maecenas at venanatis ex, at dapibus purus 
+         Donec sit.</p>
+        
+        <div class="icons">
+            <i class="fa fa-facebook" ></i>
+            <i class="fa fa-twitter" ></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+
+
+        </div>
+        <p>Made with <i class="fa fa-heart-o" ></i>by jp </p>
+    
+</section>
+
+
+
+        <!---------javascript for toggle menu------>
+
+        <script>
+            var navlinks = document.getElementById("navlinks");
+
+            function showmenu(){
+                navlinks.style.left = "0";
+
+            }
+            function hidemenu(){
+                navlinks.style.left = "-200px";
+
+            }
+
+        </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwnMggwFmyKHZQdVLXw_uCTswp3ETT7JQCZVgZHW0mLTRqGCcMxcbKrI39dfQr2ysyutQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message send successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+
+    </body>
+</html>
